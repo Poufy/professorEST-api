@@ -3,7 +3,7 @@ const app = express();
 const mongoUrl = require("./config");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-
+const unisRoute = require('./api/routes/unis');
 mongoose.connect(mongoUrl.url, {useNewUrlParser: true});
 //funnel all requests through morgan for logging requests on the console
 app.use(morgan("dev"));
