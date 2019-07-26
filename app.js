@@ -3,12 +3,12 @@ const app = express();
 const mongoUrl = require("./config");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const unisRoute = require('./api/routes/unis');
-mongoose.connect(mongoUrl.url, {useNewUrlParser: true});
+const unisRoute = require("./api/routes/universities");
+mongoose.connect(mongoUrl.url, { useNewUrlParser: true });
 //funnel all requests through morgan for logging requests on the console
 app.use(morgan("dev"));
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //Preventing CORS errors
@@ -32,22 +32,22 @@ app.use((req, res, next) => {
 });
 
 //Any request to the http server will be directed to the unis folder first hence in unis.js our get path is only /
-app.use("/unis", unisRoute);
+app.use("/universities", unisRoute);
 //if you reach this line that means no route in universties was able to handle the request therefore we catch the error here
-app.use((req, res, next)=>{
-	const error = new Error("Not found");
-	error.status = 404;
-	//forward the error;
-	next(error);
+app.use((req, res, next) => {
+  const error = new Error("Not found");
+  error.status = 404;
+  //forward the error;
+  next(error);
 });
 
-app.use((error, req, res, next)=>{
-	res.status(error || 500);
-	res.json({
-		error: {
-			message: error.message
-		}
-	});
+app.use((error, req, res, next) => {
+  res.status(error || 500);
+  res.json({
+    error: {
+      message: error.message
+    }
+  });
 });
 
 module.exports = app;
