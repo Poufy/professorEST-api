@@ -1,0 +1,40 @@
+{
+  "name": "professorest-api",
+  "version": "1.0.0",
+  "description": "A rest api to retireve queries about universities in Turkey",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.0-beta2",
+    "mongoose": "^5.6.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+	  "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poufy/professorEST-api.git"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "nodejs",
+    "javascript",
+    "express",
+    "morgan",
+    "body-parser",
+    "nodemon",
+    "routes",
+    "endpoints"
+  ],
+  "author": "Noor Al Deen Al Fayad",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Poufy/professorEST-api/issues"
+  },
+  "homepage": "https://github.com/Poufy/professorEST-api#readme"
+}
