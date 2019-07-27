@@ -39,6 +39,7 @@ app.use((req, res, next) => {
 //Any request directed to /universities will be sent to unisRoute
 app.use("/universities", unisRoute);
 app.use("/", indexRoute);
+app.set("view engine", "ejs");
 //if you reach this line that means no route in universties was able to handle the request therefore we catch the error here
 app.use((req, res, next) => {
   const error = new Error("Not found");
