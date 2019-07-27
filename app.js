@@ -5,9 +5,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 const unisRoute = require("./api/routes/universities");
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/public", "index.html"));
-});
+const indexRoute = require("./api/routes/index");
 
 app.use(express.static("public"));
 
@@ -38,8 +36,9 @@ app.use((req, res, next) => {
   next();
 });
 
-//Any request to the http server will be directed to the universities folder first hence in universities our get path is only /
+//Any request directed to /universities will be sent to unisRoute
 app.use("/universities", unisRoute);
+app.use("/", indexRoute);
 //if you reach this line that means no route in universties was able to handle the request therefore we catch the error here
 app.use((req, res, next) => {
   const error = new Error("Not found");

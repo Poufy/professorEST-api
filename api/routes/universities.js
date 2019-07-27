@@ -29,8 +29,8 @@ router.get("/", (req, res, next) => {
             };
           })
         };
-        res.render("../../public/main.html", { foundUniversities: response });
-        // res.status(200).json(response);
+        // res.render("../../public/main.html", { foundUniversities: response });
+        res.status(200).json(response);
       })
       .catch(err => {
         res.status(500).json({
