@@ -2,30 +2,65 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const University = require("../models/university");
+const locus = require("locus");
 
 router.get("/", (req, res, next) => {
-  University.find()
-    .exec()
-    .then(unis => {
-      const response = {
-        UniversityCount: unis.length,
-        universities: unis.map(uni => {
-          return {
-            _id: uni._id,
-            name: uni.name,
-            location: uni.location,
-            tuition: uni.tuition,
-            section: uni.section
-          };
-        })
-      };
-      res.status(200).json(response);
+  if (req.query.name || req.query.location || req.query.section) {
+    const nameRegex = new RegExp(escapeRegex(req.query.name), "gi");
+    const sectionRegex = new RegExp(escapeRegex(req.query.section), "gi");
+    const locationRegex = new RegExp(escapeRegex(req.query.location), "gi");
+
+    University.find({
+      name: nameRegex,
+      section: sectionRegex,
+      location: locationRegex
     })
-    .catch(err => {
-      res.status(500).json({
-        error: err
+      .exec()
+      .then(unis => {
+        const response = {
+          UniversityCount: unis.length,
+          universities: unis.map(uni => {
+            return {
+              _id: uni._id,
+              name: uni.name,
+              location: uni.location,
+              tuition: uni.tuition,
+              section: uni.section
+            };
+          })
+        };
+        res.render("../../public/main.html", { foundUniversities: response });
+        // res.status(200).json(response);
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: err
+        });
       });
-    });
+  } else {
+    University.find()
+      .exec()
+      .then(unis => {
+        const response = {
+          UniversityCount: unis.length,
+          universities: unis.map(uni => {
+            return {
+              _id: uni._id,
+              name: uni.name,
+              location: uni.location,
+              tuition: uni.tuition,
+              section: uni.section
+            };
+          })
+        };
+        res.status(200).json(response);
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: err
+        });
+      });
+  }
 });
 
 router.post("/", (req, res, next) => {
@@ -123,5 +158,9 @@ router.delete("/:uniId", (req, res, next) => {
       });
     });
 });
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 module.exports = router;

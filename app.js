@@ -3,7 +3,14 @@ const app = express();
 const mongoUrl = require("./config");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const path = require("path");
 const unisRoute = require("./api/routes/universities");
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "/public", "index.html"));
+});
+
+app.use(express.static("public"));
+
 mongoose.connect(mongoUrl.url, { useNewUrlParser: true });
 //funnel all requests through morgan for logging requests on the console
 app.use(morgan("dev"));
@@ -31,7 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//Any request to the http server will be directed to the unis folder first hence in unis.js our get path is only /
+//Any request to the http server will be directed to the universities folder first hence in universities our get path is only /
 app.use("/universities", unisRoute);
 //if you reach this line that means no route in universties was able to handle the request therefore we catch the error here
 app.use((req, res, next) => {
