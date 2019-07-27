@@ -1,1 +1,3 @@
-<% include /partials/footer %>
+<% foundUniversities.universities.forEach(function(uni) { %>
+<h1><%= uni.name %></h1>
+<% }); %>
