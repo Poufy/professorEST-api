@@ -1,3 +1,10 @@
-<% foundUniversities.universities.forEach(function(uni) { %>
-<h1><%= uni.name %></h1>
-<% }); %>
+<ul>
+  <% foundUniversities.universities.forEach(function(uni) { %>
+
+  <li><%= uni.name %></li>
+
+  <% }); %>
+</ul>
+<form action="/" method="GET">
+  <input type="submit" value="return" class="btn" />
+</form>

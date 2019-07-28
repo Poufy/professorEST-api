@@ -53,7 +53,7 @@ router.get("/", (req, res, next) => {
             };
           })
         };
-        res.status(200).json(response);
+        res.render("main", { foundUniversities: response });
       })
       .catch(err => {
         res.status(500).json({
