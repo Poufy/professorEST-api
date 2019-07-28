@@ -3,17 +3,25 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const University = require("../models/university");
 const locus = require("locus");
+const main = require("../../public/javascript/main");
 
 router.get("/", (req, res, next) => {
-  if (req.query.name || req.query.location || req.query.section) {
+  if (
+    req.query.name ||
+    req.query.location ||
+    req.query.section ||
+    req.query.tuition
+  ) {
     const nameRegex = new RegExp(escapeRegex(req.query.name), "gi");
     const sectionRegex = new RegExp(escapeRegex(req.query.section), "gi");
     const locationRegex = new RegExp(escapeRegex(req.query.location), "gi");
+    const tuitionRegex = new RegExp(escapeRegex(req.query.tuition), "gi");
 
     University.find({
       name: nameRegex,
       section: sectionRegex,
-      location: locationRegex
+      location: locationRegex,
+      tuition: tuitionRegex
     })
       .exec()
       .then(unis => {
@@ -29,7 +37,7 @@ router.get("/", (req, res, next) => {
             };
           })
         };
-        res.render("main", { foundUniversities: response });
+        res.render("main", { data: response });
         // res.status(200).json(response);
       })
       .catch(err => {
@@ -53,7 +61,9 @@ router.get("/", (req, res, next) => {
             };
           })
         };
-        res.render("main", { foundUniversities: response });
+        res.render("main", {
+          data: response
+        });
       })
       .catch(err => {
         res.status(500).json({
@@ -162,5 +172,28 @@ router.delete("/:uniId", (req, res, next) => {
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
+
+// function json2table(json) {
+//   //Number of json attributes = number of columns
+//   let cols = Object.keys(json[0]);
+//   let headerRow = "";
+//   let bodyRows = "";
+//   cols.map(col => {
+//     headerRow += "<th>" + capitilizeFirstLetter(col) + "</th>";
+//   });
+//   json.map(row => {
+//     bodyRows += "<tr>";
+
+//     cols.map(colName => {
+//       bodyRows += "<td>" + row[colName] + "<td>";
+//     });
+
+//     bodyRows += "</tr>";
+//   });
+// }
+
+// function capitilizeFirstLetter(string) {
+//   return string.charAt(0).toUpperCase() + string.slice(1);
+// }
 
 module.exports = router;

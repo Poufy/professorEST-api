@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProfessorEST</title>
-  </head>
-  <h1>University Search</h1>
-  <form class="searchForm" action="/universities" method="GET">
-    <div class="formGroup">
-      <input
-        type="text"
-        class="textForm"
-        name="name"
-        placeholder="Universities Search"
-      />
-      <input
-        type="text"
-        class="textForm"
-        placeholder="Section Search"
-        name="section"
-      />
-      <input
-        type="text"
-        class="textForm"
-        placeholder="Location Search"
-        name="location"
-      />
-      <input type="submit" class="btnForm" />
-    </div>
-  </form>
+  <body id="bg-img">
+    <head>
+      <title>ProfessorEST</title>
+    </head>
+    <div class="overlay"></div>
+    <main id="home">
+      <h1 class="lg-heading"><span id="secondary-color">Professor</span>EST</h1>
+      <h2 class="sm-heading">
+        We Care About <span id="secondary-color">Your</span> Future
+      </h2>
+      <form class="searchForm" action="/universities" method="GET">
+        <div class="formGroup">
+          <input
+            type="text"
+            class="textForm"
+            name="name"
+            placeholder="Universities..."
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            class="textForm"
+            placeholder="Section..."
+            name="section"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            class="textForm"
+            placeholder="Location..."
+            name="location"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            class="textForm"
+            placeholder="Tuition..."
+            name="tuition"
+            autocomplete="off"
+          />
+          <input type="submit" class="btnForm" />
+        </div>
+      </form>
+    </main>
+  </body>
+
+  <% include partials/footer %>
 </html>
-<% include partials/footer %>

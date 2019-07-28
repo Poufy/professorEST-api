@@ -1,10 +1,32 @@
-<ul>
-  <% foundUniversities.universities.forEach(function(uni) { %>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
+  </head>
+  <body id="bg-img">
+    <div class="overlay"></div>
+    <div id="wrapper">
+      <h1 id="mainHeader">Search Results</h1>
+      <table id="table">
+        <tr>
+          <% Object.keys(data.universities[0]).forEach((key) => { %> <%if(key
+          !=='_id') {%>
+          <th><%= key[0].toUpperCase() + key.slice(1) %></th>
+          <% }}); %>
+        </tr>
+        <% for(var i=0; i < data.universities.length; i++) { %>
+        <tr>
+          <td><%= data.universities[i].name %></td>
+          <td><%= data.universities[i].location %></td>
+          <td><%= data.universities[i].tuition %></td>
+          <td><%= data.universities[i].section %></td>
+        </tr>
+        <% } %>
+      </table>
 
-  <li><%= uni.name %></li>
-
-  <% }); %>
-</ul>
-<form action="/" method="GET">
-  <input type="submit" value="return" class="btn" />
-</form>
+      <form action="/" method="GET">
+        <input type="submit" value="Return" class="btnReturn" />
+      </form>
+    </div>
+  </body>
+  <% include partials/footer %>
+</html>
