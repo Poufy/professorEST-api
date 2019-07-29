@@ -18,4 +18,4 @@ Additional tools I'm using for development: Nodemon to keep track of the changes
 - [ ] Host online
 
 ## License
-[GPL]https://www.gnu.org/licenses/gpl-3.0.en.html
+[GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)
