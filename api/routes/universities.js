@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const University = require("../models/university");
 const locus = require("locus");
-const main = require("../../public/javascript/main");
 
 router.get("/", (req, res, next) => {
   if (

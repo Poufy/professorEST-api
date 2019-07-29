@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
+    <link rel="stylesheet" href="/css/stylesheet.css" />
   </head>
   <body id="bg-img">
     <div class="overlay"></div>
@@ -24,10 +24,14 @@
         <% } %> <% } %>
       </table>
 
+      <input type="button" id="btnExport" value="Export" />
       <form action="/" method="GET">
         <input type="submit" value="Return" class="btnReturn" />
       </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="/javascript/exportToPDF.js"></script>
   </body>
   <% include partials/footer %>
 </html>

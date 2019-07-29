@@ -4,9 +4,13 @@ body {
   height: 100%;
   margin: 0;
   line-height: 1.5;
-  overflow: hidden;
   color: white;
+  box-sizing: content-box;
 }
+body::-webkit-scrollbar{
+    width:0;
+    height: 0;
+  }
 body#bg-img {
   background: url(../img/panorama.jpg);
   background-attachment: fixed;
@@ -18,13 +22,9 @@ body#bg-img .overlay {
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 150%;
   z-index: -1;
   background: rgba(68, 68, 68, 0.7);
-}
-
-#secondary-color {
-  color: cyan;
 }
 
 /*index.ejs styling*/
@@ -35,7 +35,7 @@ h1 {
   margin: 0;
   font-weight: 400;
   font-size: 5rem;
-  margin-top: 20vh;
+  margin-top: 15vh;
   padding-left: 1rem;
 }
 h2 {
@@ -44,9 +44,7 @@ h2 {
   padding: 0.2rem 1rem;
 }
 
-form {
-  padding-left: 1rem;
-}
+
 .textForm {
   height: 20px;
   padding: 6px 10px;
@@ -116,7 +114,7 @@ form {
   color: white;
 }
 
-.btnReturn {
+.btnReturn, #btnExport {
   margin: 0 auto;
   display: block;
   background-color: white;
@@ -130,9 +128,13 @@ form {
   opacity: 1;
   transition: 0.4s;
 }
-.btnReturn:hover {
+.btnReturn:hover, #btnExport:hover{
   background-color: cyan;
   color: white;
+}
+
+#btnExport {
+    margin-bottom: 10px;
 }
 
 #footer {
