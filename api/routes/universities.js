@@ -15,13 +15,18 @@ router.get("/", (req, res, next) => {
     const nameRegex = new RegExp(escapeRegex(req.query.name), "gi");
     const sectionRegex = new RegExp(escapeRegex(req.query.section), "gi");
     const locationRegex = new RegExp(escapeRegex(req.query.location), "gi");
-    const tuitionRegex = new RegExp(escapeRegex(req.query.tuition), "gi");
+    //Case where tuition is not specified
+    req.query.tuition = req.query.tuition || 999999;
 
     University.find({
-      name: nameRegex,
-      section: sectionRegex,
-      location: locationRegex,
-      tuition: tuitionRegex
+      $and: [
+        {
+          name: nameRegex,
+          section: sectionRegex,
+          location: locationRegex
+        },
+        { tuition: { $lte: req.query.tuition } }
+      ]
     })
       .exec()
       .then(unis => {

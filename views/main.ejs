@@ -7,6 +7,7 @@
     <div id="wrapper">
       <h1 id="mainHeader">Search Results</h1>
       <table id="table">
+        <% if(data.universities[0]) {%>
         <tr>
           <% Object.keys(data.universities[0]).forEach((key) => { %> <%if(key
           !=='_id') {%>
@@ -20,7 +21,7 @@
           <td><%= data.universities[i].tuition %></td>
           <td><%= data.universities[i].section %></td>
         </tr>
-        <% } %>
+        <% } %> <% } %>
       </table>
 
       <form action="/" method="GET">
