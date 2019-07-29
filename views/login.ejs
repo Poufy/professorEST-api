@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/stylesheet.css" />
+  </head>
+  <body id="bg-img">
+    <div class="overlay"></div>
+    <div id="sign">
+      <h1>Login</h1>
+      <form action="/login" method="GET">
+        <input
+          id="sign-username"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+        <input
+          id="sign-password"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input id="sign-signin" type="submit" value="Login" name="login" />
+      </form>
+    </div>
+  </body>
+  <% include partials/footer %>
+</html>

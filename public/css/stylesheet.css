@@ -149,3 +149,58 @@ h2 {
     margin-top: 100px"
 }
 
+#sign{
+    width: 300px;
+    padding: 40px;
+    position: fixed;
+    background: rgba(111, 112, 111, 0.4);
+    top: 50%;
+    left: 27%;
+    border: 3px solid cyan;
+    transform: translate(30%,-50%);
+    text-align: center;
+    border-radius: 10%;
+  }
+
+  #sign h1{
+    margin-bottom: 2rem;
+    color: white;
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  #sign-username ,#sign-password{
+    margin-top: 1rem;
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid cyan;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+  }
+  
+  
+  #sign-signin{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid cyan;
+    padding: 14px 40px;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  
+  #sign-signin:hover{
+    background: cyan;
+  }
+  
