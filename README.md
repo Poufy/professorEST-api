@@ -1,6 +1,6 @@
 ## ProfessorEST-api
 
-I was asked by a local company called professorEST to store their data online and allow them to query that data using certain parameters from either a phone or a webpage.
+An API for a local company called professorEST to store their data online and allow them to query and export that data using certain parameters from either a phone or a webpage.
 
 ## Tools
 
@@ -11,10 +11,11 @@ Additional tools I'm using for development: Nodemon to keep track of the changes
 
 - [x] Convert JSON to HTML table
 - [x] Design the views with ejs
-- [ ] A field to lookup the maximum price
+- [x] A field to lookup the maximum price
 - [ ] Add a field to specify the language
 - [ ] Login system
-- [ ] Export HTML table as PDF
+- [x] Export HTML table as PDF
+- [ ] Convert the data from Excel to JSON
 - [ ] Host online
 
 ## License
