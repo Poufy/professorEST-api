@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="/css/stylesheet.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
   </head>
   <body id="bg-img">
     <div class="overlay"></div>
@@ -15,7 +16,7 @@
           <% }}); %>
         </tr>
         <% for(var i=0; i < data.universities.length; i++) { %>
-        <tr>
+        <tr dir="rtl" lang="ar">
           <td><%= data.universities[i].name %></td>
           <td><%= data.universities[i].location %></td>
           <td><%= data.universities[i].tuition %></td>
@@ -30,7 +31,7 @@
       </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="/javascript/html2canvas.js"></script>
     <script src="/javascript/exportToPDF.js"></script>
   </body>
   <% include partials/footer %>

@@ -10,7 +10,9 @@ document.getElementById("btnExport").onclick = function Export() {
           }
         ]
       };
-      pdfMake.createPdf(docDefinition).download("Table.pdf");
+      pdfMake
+        .createPdf(docDefinition)
+        .download("professor" + Math.ceil(Math.random() * 300) + ".pdf");
     }
   });
 };
