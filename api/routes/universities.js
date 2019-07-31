@@ -6,25 +6,28 @@ const locus = require("locus");
 
 router.get("/", (req, res, next) => {
   if (
-    req.query.name ||
-    req.query.location ||
-    req.query.section ||
-    req.query.tuition
+    req.query.universityName ||
+    req.query.language ||
+    req.query.branchName ||
+    req.query.price
   ) {
-    const nameRegex = new RegExp(escapeRegex(req.query.name), "gi");
-    const sectionRegex = new RegExp(escapeRegex(req.query.section), "gi");
-    const locationRegex = new RegExp(escapeRegex(req.query.location), "gi");
-    //Case where tuition is not specified
-    req.query.tuition = req.query.tuition || 999999;
+    const universityNameRegex = new RegExp(
+      escapeRegex(req.query.universityName),
+      "gi"
+    );
+    const branchNameRegex = new RegExp(escapeRegex(req.query.branchName), "gi");
+    const languageRegex = new RegExp(escapeRegex(req.query.language), "gi");
+    //Case where price is not specified
+    req.query.price = req.query.price || 999999;
 
     University.find({
       $and: [
         {
-          name: nameRegex,
-          section: sectionRegex,
-          location: locationRegex
+          universityName: universityNameRegex,
+          branchName: branchNameRegex,
+          language: languageRegex
         },
-        { tuition: { $lte: req.query.tuition } }
+        { price: { $lte: req.query.price } }
       ]
     })
       .exec()
@@ -33,14 +36,18 @@ router.get("/", (req, res, next) => {
           UniversityCount: unis.length,
           universities: unis.map(uni => {
             return {
-              _id: uni._id,
-              name: uni.name,
-              location: uni.location,
-              tuition: uni.tuition,
-              section: uni.section
+              notes: uni.notes,
+              periodStudy: uni.periodStudy,
+              price: uni.price,
+              language: uni.language,
+              educationalLevel: uni.educationalLevel,
+              branchName: uni.branchName,
+              collegeName: uni.collegeName,
+              universityName: uni.universityName
             };
           })
         };
+        //eval(locus);
         res.render("main", { data: response });
         // res.status(200).json(response);
       })
@@ -57,11 +64,14 @@ router.get("/", (req, res, next) => {
           UniversityCount: unis.length,
           universities: unis.map(uni => {
             return {
-              _id: uni._id,
-              name: uni.name,
-              location: uni.location,
-              tuition: uni.tuition,
-              section: uni.section
+              notes: uni.notes,
+              periodStudy: uni.periodStudy,
+              price: uni.price,
+              language: uni.language,
+              educationalLevel: uni.educationalLevel,
+              branchName: uni.branchName,
+              collegeName: uni.collegeName,
+              universityName: uni.universityName
             };
           })
         };
@@ -82,7 +92,7 @@ router.post("/", (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     location: req.body.location,
-    tuition: req.body.tuition,
+    price: req.body.price,
     section: req.body.section
   });
   university
@@ -113,7 +123,7 @@ router.get("/:uniId", (req, res, next) => {
         _id: uni._id,
         name: uni.name,
         location: uni.location,
-        tuition: uni.tuition,
+        price: uni.price,
         section: uni.section
       };
       res.status(200).json(university);
@@ -136,7 +146,7 @@ router.patch("/:uniId", (req, res, next) => {
           _id: req.body._id,
           name: req.body.name,
           location: req.body.location,
-          tuition: req.body.tuition,
+          price: req.body.price,
           section: req.body.section
         }
       };
@@ -160,7 +170,7 @@ router.delete("/:uniId", (req, res, next) => {
           _id: req.body._id,
           name: req.body.name,
           location: req.body.location,
-          tuition: req.body.tuition,
+          price: req.body.price,
           section: req.body.section
         }
       };

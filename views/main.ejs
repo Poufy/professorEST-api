@@ -10,17 +10,20 @@
       <table id="table">
         <% if(data.universities[0]) {%>
         <tr>
-          <% Object.keys(data.universities[0]).forEach((key) => { %> <%if(key
-          !=='_id') {%>
+          <% Object.keys(data.universities[0]).forEach((key) => { %>
           <th><%= key[0].toUpperCase() + key.slice(1) %></th>
-          <% }}); %>
+          <% }); %>
         </tr>
         <% for(var i=0; i < data.universities.length; i++) { %>
         <tr dir="rtl" lang="ar">
-          <td><%= data.universities[i].name %></td>
-          <td><%= data.universities[i].location %></td>
-          <td><%= data.universities[i].tuition %></td>
-          <td><%= data.universities[i].section %></td>
+          <td><%= data.universities[i].notes %></td>
+          <td><%= data.universities[i].periodStudy %></td>
+          <td><%= data.universities[i].price %></td>
+          <td><%= data.universities[i].language %></td>
+          <td><%= data.universities[i].educationalLevel %></td>
+          <td><%= data.universities[i].branchName %></td>
+          <td><%= data.universities[i].collegeName %></td>
+          <td><%= data.universities[i].universityName %></td>
         </tr>
         <% } %> <% } %>
       </table>
