@@ -12,10 +12,10 @@ Additional tools I'm using for development: Nodemon to keep track of the changes
 - [x] Convert JSON to HTML table
 - [x] Design the views with ejs
 - [x] A field to lookup the maximum price
-- [ ] Add a field to specify the language
-- [ ] Login system
+- [x] Add a field to specify the language
+- [x] Login system
 - [x] Export HTML table as PDF
-- [ ] Convert the data from Excel to JSON
+- [x] Convert the data from Excel to JSON
 - [ ] Host online
 
 ## License

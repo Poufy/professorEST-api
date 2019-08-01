@@ -18,11 +18,11 @@ body#bg-img {
 }
 
 body#bg-img .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 100%;
-  height: 150%;
+  height: 140%;
   z-index: -1;
   background: rgba(68, 68, 68, 0.7);
 }
