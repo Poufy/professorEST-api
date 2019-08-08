@@ -3,6 +3,7 @@ body {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   height: 100%;
   margin: 0;
+  padding: 0;
   line-height: 1.5;
   color: white;
   box-sizing: content-box;
@@ -83,7 +84,6 @@ h2 {
 }
 /*Styling the table on main.ejs*/
 #table {
-  padding-top: 200px;
   border-collapse: collapse;
   width: 80%;
   color: black;

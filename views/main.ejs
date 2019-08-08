@@ -29,8 +29,11 @@
         <% } %> <% } %>
       </table>
     </div>
-    <form action="/" method="GET">
-      <input type="submit" value="Return" class="btnReturn" />
-    </form>
+    <button onclick="goBack()" class="btnReturn">Return</button>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>
