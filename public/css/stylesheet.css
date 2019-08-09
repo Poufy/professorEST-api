@@ -114,28 +114,28 @@ h2 {
   color: white;
 }
 
-.btnReturn, #btnExport {
-  margin: 0 auto;
+.btnReturn {
+  margin: auto;
   display: block;
+  margin-bottom: 5px;
   background-color: white;
   border: none;
   border-radius: 10px;
   color: black;
-  font-weight: 600;
-  padding: 10px 60px;
+  font-weight: 400;
+  /* padding: 10px 60px; */
   text-align: center;
   font-size: 16px;
+  width: 200px;
+  height: 30px;
   opacity: 1;
   transition: 0.4s;
 }
-.btnReturn:hover, #btnExport:hover{
+.btnReturn:hover{
   background-color: cyan;
   color: white;
 }
 
-#btnExport {
-    margin-bottom: 10px;
-}
 
 #footer {
     position: fixed;

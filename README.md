@@ -17,6 +17,7 @@ Additional tools I'm using for development: Nodemon to keep track of the changes
 - [x] Export HTML table as PDF
 - [x] Convert the data from Excel to JSON
 - [ ] Host online
+- [ ] Learn React and move to to android using React Native
 
 ## License
 [GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)

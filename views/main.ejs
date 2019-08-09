@@ -29,8 +29,20 @@
         <% } %> <% } %>
       </table>
     </div>
-    <button onclick="goBack()" class="btnReturn">Return</button>
+    <button onclick="goBack()" id="returnbtn" class="btnReturn">Return</button>
+    <button onclick="maximize()" id="maxbtn" class="btnReturn">Maximize</button>
     <script>
+      var returnbtn = document.getElementById("returnbtn");
+      var maxbtn = document.getElementById("maxbtn");
+      var header = document.getElementById("mainHeader");
+      var table = document.getElementById("table");
+      function maximize() {
+        returnbtn.remove();
+        maxbtn.remove();
+        header.remove();
+        table.style.width = "100%";
+        table.style.height = "100%";
+      }
       function goBack() {
         window.history.back();
       }
