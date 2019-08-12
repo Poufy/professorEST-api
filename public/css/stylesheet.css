@@ -1,6 +1,8 @@
 html,
 body {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+  /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+  font-family: 'Amiri', serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -90,6 +92,8 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
+  font-family: 'Amiri', serif;
+  font-weight: 500; 
 }
 
 #table td,
@@ -98,8 +102,14 @@ h2 {
   padding: 8px;
 }
 
-#table tr:nth-child(1n) {
+#table tr:nth-child(odd) {
   background-color: #f2f2f2;
+  
+}
+
+#table tr:nth-child(even) {
+  background-color:#e6ffcc;
+
 }
 
 #table tr:hover {
@@ -110,7 +120,8 @@ h2 {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: cyan;
+  background-color: cyan !important;
+  -webkit-print-color-adjust: exact;
   color: white;
 }
 

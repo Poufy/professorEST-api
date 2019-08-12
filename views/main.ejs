@@ -2,13 +2,17 @@
   <head>
     <link rel="stylesheet" href="/css/stylesheet.css" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amiri&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body id="bg-img">
     <div class="overlay"></div>
     <div id="wrapper">
       <h1 id="mainHeader">Search Results</h1>
 
-      <table id="table">
+      <table id="table" style="font-family: 'Amiri', serif">
         <% if(data.universities[0]) {%>
         <tr>
           <% Object.keys(data.universities[0]).forEach((key) => { %>
